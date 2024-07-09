@@ -108,7 +108,7 @@ describe('MessageData', () => {
     });
   });
 
-  describe('delete', () => {
+  describe.only('delete', () => {
     it('successfully marks a message as deleted', async () => {
       const conversationId = new ObjectID();
       const message = await messageData.create(

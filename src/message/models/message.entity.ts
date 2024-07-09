@@ -116,6 +116,10 @@ export class ChatMessageData {
 @ObjectType()
 @Directive('@key(fields: "id")')
 export class ChatMessage {
+  static deleted: boolean;
+  static findByIdAndUpdate(messageId: ObjectID, arg1: { $set: { deleted: boolean; }; }, arg2: { new: boolean; }) {
+    throw new Error('Method not implemented.');
+  }
   @Field(() => ID)
   id: ObjectID;
 
