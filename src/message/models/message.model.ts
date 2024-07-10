@@ -117,6 +117,9 @@ export class Reaction {
 
 @Schema()
 export class ChatMessageModel {
+  static findOne(findOne: any) {
+    throw new Error('Method not implemented.');
+  }
   id: ObjectID;
 
   @Prop()

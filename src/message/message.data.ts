@@ -35,6 +35,36 @@ export class MessageData {
     const dbResult = await chatMessage.save();
     return chatMessageToObject(dbResult);
   }
+  
+
+  async addMessageTag(
+    messageId: ObjectID,
+    tag: string,
+    senderId: ObjectID,
+  ): Promise<ChatMessage> {
+    try {
+      const message = await this.chatMessageModel.findOne({
+        _id: messageId,
+        senderId,
+      });
+      if (!message) {
+        throw new Error('Message not found');
+      }
+
+      if (typeof tag !== 'string' || tag.trim() === '') {
+        throw new Error('Tag Invalid');
+      }
+
+      if (!message.tags.includes(tag)) {
+        message.tags.push(tag);
+        await message.save();
+      }
+      return chatMessageToObject(message);
+    } catch (error) {
+      throw error;
+    }
+  }
+
 
   async getMessage(messageId: string): Promise<ChatMessageModel> {
     const message = await this.chatMessageModel.findById(messageId);

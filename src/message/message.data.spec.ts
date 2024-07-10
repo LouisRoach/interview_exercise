@@ -19,6 +19,10 @@ class TestMessageData extends MessageData {
   }
 }
 
+
+
+
+
 describe('MessageData', () => {
   let messageData: TestMessageData;
 
@@ -59,6 +63,8 @@ describe('MessageData', () => {
     expect(messageData).toBeDefined();
   });
 
+
+  
   describe('create', () => {
     it('should be defined', () => {
       expect(messageData.create).toBeDefined();
@@ -107,6 +113,8 @@ describe('MessageData', () => {
       expect(gotMessage).toMatchObject(sentMessage)
     });
   });
+
+  
 
   describe.only('delete', () => {
     it('successfully marks a message as deleted', async () => {
