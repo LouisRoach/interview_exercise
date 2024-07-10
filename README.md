@@ -82,9 +82,13 @@ While we don't expect everyone to complete this part of the exercise, it will fo
 
 We'd love to hear about
 * How you would go about implementing the solution
+I created a function to add a tag to a message. first it uses findOne to find the correct message. If that message exists it checks the validity of the proposed tag then pushes it if valid. 
 * What problems you might encounter
+The function makes sure the tag is a string and that it isn't empty. It doesn't filter out prohibited language and doesn't check for repeated tags. It also doesn't limit the number of tags on a message.
 * How you would go about testing
+I'd test use a mock tag and mock message to make sure the tag was updated correctly
 * What you might do differently
+I'd add more functionality to complete the brief. Updating and Searching by tag is missing. I'm new to MongoDB so would need to review more docs so that I can make approriate changes to the models to ensure my existing ideas function. 
 
 # Additional
 The following docs are from the live service repo. You may find them helpful. 
